@@ -34,7 +34,7 @@ def handle_message(msg):
     article.download()
     article.parse()
 
-    print article.text
+    print(article.text)
 
     task['text'] = article.text
 
@@ -49,6 +49,6 @@ while True:
             try:
                 handle_message(msg)
             except Exception as e:
-                print e
+                print(e)
                 pass
         scrape_news_queue_client.sleep(SLEEP_TIME_IN_SECONDS)

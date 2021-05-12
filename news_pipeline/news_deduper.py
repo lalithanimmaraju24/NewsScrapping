@@ -68,7 +68,7 @@ def handle_message(msg):
     if title is not None:
         topic = news_topic_modeling_service_client.classify(title)
         task['class'] = topic
-    print "add one news"
+    print("add one news")
     db[NEWS_TABLE_NAME].replace_one({'digest': task['digest']}, task, upsert=True)
 
 while True:
@@ -79,7 +79,7 @@ while True:
             try:
                 handle_message(msg)
             except Exception as e:
-                print e
+                print(e)
                 pass
 
         cloudAMQP_client.sleep(SLEEP_TIME_IN_SECONDS)

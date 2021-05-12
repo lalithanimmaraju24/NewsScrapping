@@ -1,8 +1,8 @@
-import pyjsonrpc
+from jsonrpcclient.clients.http_client import HTTPClient
 
-URL = "http://localhost:6060/"
 
-client = pyjsonrpc.HttpClient(url=URL)
+
+client = HTTPClient("http://localhost:6060/")
 
 def classify(text):
     topic = client.call('classify', text)
